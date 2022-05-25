@@ -14,3 +14,28 @@ import UsuarioEditar from "./pages/admin/Usuario/usuario.editar";
 
 import Home from "./pages/client/home";
 import ProdutosDetails from "./pages/client/produto/produtos.details";
+
+export default function Routes(){
+    return(
+        <BrowserRouter>
+            <Switch>
+                <Route path = "/" exact component={Home} />
+                <Route path = "/produtos/:idProduto" exact component={ProdutosDetails} />
+                
+                
+                <Route path = "/admin" exact component={Dashboard} />
+               
+               
+                <Route path = "/admin/produtos" exact component={Produtos} />
+                <Route path = "/admin/produtos/cadastrar" exact component={ProdutosCadastrar} />
+                <Route path = "/admin/produtos/editar/:idProduto" exact component={ProdutosEditar} />
+
+
+                <Route path = "/admin/usuarios" exact component={Usuarios} />
+                <Route path = "/admin/usuarios/cadastrar" exact component={UsuarioCadastrar} />
+                <Route path = "/admin/usuarios/editar/:idUsuario" exact component={UsuarioEditar} />
+
+            </Switch>
+        </BrowserRouter>
+    )
+}
