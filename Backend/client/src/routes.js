@@ -14,6 +14,7 @@ import UsuarioEditar from "./pages/admin/Usuario/usuario.editar";
 
 import Home from "./pages/client/home";
 import ProdutosDetails from "./pages/client/produto/produtos.details";
+import Login from './pages/admin/login';
 
 export default function Routes(){
     return(
@@ -24,7 +25,7 @@ export default function Routes(){
                 
                 
                 <Route path = "/admin" exact component={Dashboard} />
-               
+                <Route path = "/admin/login" exact component={Login} />
                
                 <Route path = "/admin/produtos" exact component={Produtos} />
                 <Route path = "/admin/produtos/cadastrar" exact component={ProdutosCadastrar} />

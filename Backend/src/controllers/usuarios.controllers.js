@@ -1,5 +1,6 @@
 const Usuario = require('../models/usuario.model');
-
+const jwt = require("jsonwebtoken");
+const secret = "mysecret";
 module.exports = {
     async index(req, res){
         const user = await Usuario.find();
@@ -20,7 +21,7 @@ module.exports = {
     },
     async details(req, res){
         const { _id } = req.params;
-        const user = await Usuario.findOne({ _id });
+        const user = await Usuario.findById({ _id });
         res.json(user);
     },
     async delete(req,res){
@@ -34,5 +35,32 @@ module.exports = {
         const data = {nome_usuario, email_usuario,senha_usuario,tipo_usuario};
         const user = await Usuario.findOneAndUpdate({_id},data, {new: true});
         res.json(user);
+    },
+    async login(req,res){
+        const {email, senha} = req.body;
+        Usuario.findOne({email_usuario: email, tipo_usuario:1}, function(err, user){
+            if(err){
+                console.log(err);
+                res.status(200).json({erro:"Erro no sever, tente novamente"});
+            }else if (!user){
+                res.status(200).json({status:2, error: "E-mail não confere!"});
+            }else{
+                user.isCorrectPassword(senha, async function(err, same){
+                    if(err){
+                        res.status(200).json({error: "Erro no sever, tente novamente!"});
+                    }else if(!same){
+                        res.status(200).json({status:2, error: "Senha incorreta"});
+                    }else{
+                        const payload = {email};
+                        const token = jwt.sign(payload, secret, {
+                            expiresIn: "12h"
+                        })
+                        res.cookie('token', token, {httpOnly: true});
+                        res.status(200).json({status:1, auth:true, token:token, id_client: user._id, user_name:user.nome_usuario});
+                    }
+                })                              
+                
+            }
+        })
     }
 }
