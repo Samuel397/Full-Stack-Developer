@@ -18,7 +18,7 @@ export default function DashboardContent() {
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
-         <MenuAdmin />
+         <MenuAdmin title={'DASHBOARD'}/>
         <Box
           component="main"
           sx={{
