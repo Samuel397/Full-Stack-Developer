@@ -9,7 +9,7 @@ module.exports = {
     async create(req, res){
         const {nome_produto, descricao_produto, preco_produto, qtd_produto} = req.body;
         let data = {};
-        let product = await Produto.findOne({nome_produto});
+        let product = await Produto.findOne({nome_produto}); 
         if(!product){
             data = {nome_produto, descricao_produto, preco_produto, qtd_produto};
             product = await Produto.create(data);

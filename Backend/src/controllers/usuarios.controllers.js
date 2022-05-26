@@ -21,7 +21,7 @@ module.exports = {
     },
     async details(req, res){
         const { _id } = req.params;
-        const user = await Usuario.findById({ _id });
+        const user = await Usuario.findOne({ _id });
         res.json(user);
     },
     async delete(req,res){

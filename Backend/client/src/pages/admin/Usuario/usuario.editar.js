@@ -15,7 +15,7 @@ import { InputLabel } from '@mui/material';
 import { useState } from 'react';
 import { Button } from '@mui/material';
 import api from '../../../services/api'
-import { useEffect } from 'react';
+import { useEffect }from 'react';
 import { useParams } from 'react-router-dom';
 
 
@@ -27,10 +27,11 @@ export default function UsuarioCadastrar() {
   const [senha, setSenha] = useState('');
   const [tipo, setTipo] = useState('');
 
-  /*
+  const {idUsuario} = useParams();
+
   useEffect(()=>{
     async function getUsuario(){
-      var resp = await api.get('/api/usuarios.details/'); 
+      var resp = await api.get('/api/usuarios.details/'+idUsuario); 
       console.log(resp);
       setNome(resp.data.nome_usuario);
       setEmail(resp.data.email_usuario);
@@ -39,7 +40,7 @@ export default function UsuarioCadastrar() {
     }
     getUsuario(); 
   
-  },[])*/ 
+  },[])
 
   async function handleSubmit(){
 
@@ -47,7 +48,8 @@ export default function UsuarioCadastrar() {
       nome_usuario:nome, 
       email_usuario:email,
       senha_usuario:senha,
-      tipo_usuario:tipo}
+      tipo_usuario:tipo,
+      _id:idUsuario}
       
       
       if(nome !== '' && email !=='' && senha !== '' && tipo !==''){

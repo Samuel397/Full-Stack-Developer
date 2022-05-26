@@ -6,7 +6,7 @@ import Dashboard  from "./pages/admin/dashboard";
 
 import Produtos from './pages/admin/Produtos';
 import ProdutosCadastrar from "./pages/admin/Produtos/produtos.cadastrar";
-import ProdutosEditar from "./pages/admin/Produtos/produtos.editar";
+import ProdutosEditar from "./pages/admin/Produtos/produtos.editar"; 
 
 import Usuarios from './pages/admin/Usuario';
 import UsuarioCadastrar from "./pages/admin/Usuario/usuario.cadastrar";
