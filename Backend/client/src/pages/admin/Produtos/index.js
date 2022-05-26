@@ -91,7 +91,7 @@ export default function ProdutosListagem() {
                               <TableCell align="center">{row.preco_produto}</TableCell>                              
                               <TableCell align="center">
                                   <ButtonGroup aria-label="outlined primary button group">
-                                    <Button color="primary" href={'/admin/produtos/editar/'+row.id}>Atualizar</Button>
+                                    <Button color="primary" href={'/admin/produtos/editar/'+row._id}>Atualizar</Button>
                                     <Button color="secondary" onClick={()=>handleDelete(row._id)}>Excluir</Button>                                    
                                   </ButtonGroup>
                               </TableCell>
