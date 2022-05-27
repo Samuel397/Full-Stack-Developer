@@ -32,7 +32,7 @@ export default function UsuarioCadastrar() {
       email_usuario:email,
       senha_usuario:senha,
       tipo_usuario:tipo}
-      console.log(data);
+      
       
       if(nome !== '' && email !=='' && senha !== '' && tipo !==''){
       const response = await api.post('/api/usuarios', data);

@@ -12,6 +12,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MuiAppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
 
+
 export default function MenuAdmin({title}){
     const drawerWidth = 240;
     const AppBar = styled(MuiAppBar, {

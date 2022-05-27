@@ -36,14 +36,15 @@ export default function ProdutoCadastrar() {
       
       if(nome !== '' && descricao !=='' && preco !== '' && quantidade !==''){
       const response = await api.post('/api/produtos', data);
-      if(response.status === 200){
-        window.location.href='/admin/produtos'
-      }else{
-        alert('Erro ao cadastrar o produto!');
-      }
-    }else{
-      alert('Preencha todos os campos! ');
-    }
+         if(response.status === 200){
+            window.location.href='/admin/produtos'
+          }else{
+            alert('Erro ao cadastrar o produto!');
+         }
+         }else{
+            alert('Preencha todos os campos! ');
+         }
+         console.log("oi");
   }  
   return (
     <ThemeProvider theme={mdTheme}>

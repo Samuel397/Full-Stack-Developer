@@ -3,6 +3,7 @@ import React from "react";
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import Dashboard  from "./pages/admin/dashboard";
+import ClientProdutosDetails from "./pages/client/produto/produtos.details"
 
 import Produtos from './pages/admin/Produtos';
 import ProdutosCadastrar from "./pages/admin/Produtos/produtos.cadastrar";
@@ -12,7 +13,7 @@ import Usuarios from './pages/admin/Usuario';
 import UsuarioCadastrar from "./pages/admin/Usuario/usuario.cadastrar";
 import UsuarioEditar from "./pages/admin/Usuario/usuario.editar";
 
-import Home from "./pages/client/home/index";
+import Logon from "./pages/client/home";
 import ProdutosDetails from "./pages/client/produto/produtos.details";
 import Login from './pages/admin/login';
 
@@ -22,10 +23,11 @@ export default function Routes(){
     return(
         <BrowserRouter>
             <Switch>
-                <Route path = "/" exact component={Home} />
+                <Route path = "/" exact component={Logon} />
                 <Route path = "/produtos/:idProduto" exact component={ProdutosDetails} />
                 
                 <Route path = "/admin/login" exact component={Login} />
+                <Route path = "/client/produto" exact component={ClientProdutosDetails} />
                 <PrivateRoute path = "/admin" exact component={Dashboard} />
                 
                
