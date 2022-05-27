@@ -34,17 +34,16 @@ export default function ProdutoCadastrar() {
       qtd_produto:quantidade}
       console.log(data);
       
-      if(nome !== '' && descricao !=='' && preco !== '' && quantidade !==''){
-      const response = await api.post('/api/produtos', data);
-         if(response.status === 200){
-            window.location.href='/admin/produtos'
-          }else{
-            alert('Erro ao cadastrar o produto!');
-         }
-         }else{
-            alert('Preencha todos os campos! ');
-         }
-         console.log("oi");
+      if(nome !== '' && descricao !=='' && preco !== '' && quantidade !==''){        
+      const response = await api.post('/api/produtos', data);      
+      if(response.status === 200){          
+         window.location.href='/admin/produtos'
+      }else{            
+        alert('Erro ao cadastrar o produto!');
+        }
+      }else{
+        alert('Preencha todos os campos! ');        
+      }         
   }  
   return (
     <ThemeProvider theme={mdTheme}>
@@ -103,12 +102,16 @@ export default function ProdutoCadastrar() {
                               label="Quantidade"
                               onChange={e => setQuantidade(e.target.value)}
                              >                          
-                              <MenuItem value={1}>10</MenuItem>
-                              <MenuItem value={2}>50</MenuItem>
-                              <MenuItem value={3}>100</MenuItem> 
-                              <MenuItem value={4}>200</MenuItem> 
-                              <MenuItem value={5}>400</MenuItem> 
-                              <MenuItem value={6}>800</MenuItem>                                
+                              <MenuItem value={1}>1</MenuItem>
+                              <MenuItem value={2}>2</MenuItem>
+                              <MenuItem value={3}>3</MenuItem> 
+                              <MenuItem value={4}>4</MenuItem> 
+                              <MenuItem value={5}>5</MenuItem> 
+                              <MenuItem value={10}>10</MenuItem> 
+                              <MenuItem value={20}>20</MenuItem> 
+                              <MenuItem value={40}>40</MenuItem> 
+                              <MenuItem value={50}>50</MenuItem> 
+                              <MenuItem value={100}>100</MenuItem>                                
                              </Select>
                   </FormControl>
                </Grid>

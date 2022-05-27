@@ -51,7 +51,7 @@ export default function ProdutosDetails() {
             <Grid container spacing={3}>
               <Grid item sm={12}>
               <Paper className="classes.paper">
-                  <h2>Listagem de Produtos</h2>
+                  <h2>Produtos em Estoque</h2>
                 <Grid container spacing={3}>
                 <Grid item xs={12} sm={12}>                  
                     <TableContainer component={Paper}>

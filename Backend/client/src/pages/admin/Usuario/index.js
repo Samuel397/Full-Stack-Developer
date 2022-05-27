@@ -44,6 +44,10 @@ export default function UsuariosListagem() {
       }
     } 
   }
+  function handleSubmit(){
+    window.location.href='/admin/usuarios/cadastrar'
+
+}
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -107,19 +111,22 @@ export default function UsuariosListagem() {
                               <TableCell align="right">
                                   <ButtonGroup aria-label="outlined primary button group">
                                     <Button color="primary" href={'/admin/usuarios/editar/'+row._id}>Atualizar</Button>
-                                    <Button color="secondary" onClick={()=>handleDelete(row._id)}>Delete</Button>                                    
+                                    <Button color="warning" onClick={()=>handleDelete(row._id)}>Delete</Button>                                    
                                   </ButtonGroup>
                               </TableCell>
                             </TableRow>
                           ))}
-                        </TableBody>
+                         <Grid item xs={12} sm={12}>
+                         <Button variant="contained" onClick={handleSubmit} color="success">Cadastrar Usuários</Button>
+                        </Grid>
+                       </TableBody>
                       </Table>
                     </TableContainer>                 
+                   </Grid>
+                  </Grid>
+                </Paper>  
                </Grid>
-               </Grid>
-              </Paper>
-              </Grid>
-            </Grid>
+             </Grid>
             <Footer sx={{ pt: 4 }} />
           </Container>
         </Box>

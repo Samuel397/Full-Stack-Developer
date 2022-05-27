@@ -35,7 +35,7 @@ export default function UsuarioCadastrar() {
       
       
       if(nome !== '' && email !=='' && senha !== '' && tipo !==''){
-      const response = await api.post('/api/usuarios', data);
+      const response = await api.post('/api/usuarios', data);      
       if(response.status === 200){
         window.location.href='/admin/usuarios'
       }else{

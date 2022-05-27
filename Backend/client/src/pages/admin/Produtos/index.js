@@ -41,6 +41,10 @@ export default function ProdutosListagem() {
       }
     } 
   }
+    function handleSubmit(){
+      window.location.href='/admin/produtos/cadastrar'
+
+  }
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -73,7 +77,7 @@ export default function ProdutosListagem() {
                             <TableCell>Nome</TableCell>
                             <TableCell align="center">Descrição</TableCell>
                             <TableCell align="center">Quantidade</TableCell>
-                            <TableCell align="center">Preço</TableCell>
+                            <TableCell align="right">Preço</TableCell>
                             <TableCell align="center">Edição</TableCell>
                           </TableRow>
                         </TableHead>
@@ -88,21 +92,25 @@ export default function ProdutosListagem() {
                               </TableCell>
                               <TableCell align="center">{row.descricao_produto}</TableCell>
                               <TableCell align="center">{row.qtd_produto}</TableCell>
-                              <TableCell align="center">{row.preco_produto}</TableCell>                              
+                              <TableCell align="right">{row.preco_produto}</TableCell>                              
                               <TableCell align="center">
-                                  <ButtonGroup aria-label="outlined primary button group">
+                                  <ButtonGroup aria-label="outlined primary button group">                                    
                                     <Button color="primary" href={'/admin/produtos/editar/'+row._id}>Atualizar</Button>
-                                    <Button color="secondary" onClick={()=>handleDelete(row._id)}>Excluir</Button>                                    
+                                    <Button color="warning" onClick={()=>handleDelete(row._id)}>Excluir</Button>   
+                                    <Button color="success" href={'/client/produto/'}>Estoque</Button>                                 
                                   </ButtonGroup>
                               </TableCell>
                             </TableRow>
                           ))}
-                        </TableBody>
-                      </Table>
-                    </TableContainer>                 
-               </Grid>
-               </Grid>
-              </Paper>
+                         <Grid item xs={12} sm={12}>
+                       <Button variant="contained" onClick={handleSubmit} color="success">Cadastrar Produtos</Button>
+                     </Grid>
+                    </TableBody>
+                   </Table>
+                  </TableContainer>                                    
+                 </Grid>
+                </Grid>
+               </Paper>
               </Grid>
             </Grid>
             <Footer sx={{ pt: 4 }} />

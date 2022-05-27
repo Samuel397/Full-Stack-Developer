@@ -8,7 +8,7 @@ const routes = require ('./src/routes');
 const app = express();
 const port = process.env.PORT || 5000;
 
-mongoose.connect('mongodb://localhost:27017/controle-estoque',{
+mongoose.connect('mongodb+srv://EstagioFullDeveloper:lwRQJSYRhHsY7o7F@cluster0.cmtsv.mongodb.net/?retryWrites=true&w=majority',{
 
 }, function(err){
     if(err){
